@@ -967,7 +967,7 @@ const AppInner = observer((props: { theme: Theme }) => {
               noWrap
               classes={{ root: "app-inner-title" }}
             >
-              Sekai Viewer <small>{import.meta.env.PACKAGE_VERSION}</small>
+              Go-Sekai Database <small>{import.meta.env.PACKAGE_VERSION}</small>
             </Typography>
             <IconButton
               color="inherit"
@@ -1017,7 +1017,7 @@ const AppInner = observer((props: { theme: Theme }) => {
               noWrap
               classes={{ root: "app-inner-title" }}
             >
-              Sekai Viewer <small>{import.meta.env.PACKAGE_VERSION}</small>
+              Go-Sekai Database <small>{import.meta.env.PACKAGE_VERSION}</small>
             </Typography>
             <IconButton
               color="inherit"

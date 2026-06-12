@@ -127,7 +127,7 @@ const AppSkeletonInner: React.FC<{ theme: Theme }> = (props: {
               noWrap
               classes={{ root: "app-skeleton-inner-title" }}
             >
-              Sekai Viewer <small>{import.meta.env.PACKAGE_VERSION}</small>
+              Go-Sekai Database <small>{import.meta.env.PACKAGE_VERSION}</small>
             </Typography>
             <IconButton
               color="inherit"
