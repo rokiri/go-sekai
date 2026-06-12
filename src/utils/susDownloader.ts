@@ -15,7 +15,7 @@ export async function downloadChartAsSus(
 ) {
   const paddedId = musicId.padStart(4, "0");
   const STORAGE_BASE = import.meta.env.VITE_ASSET_DOMAIN_MINIO;
-  const url = `${STORAGE_BASE}/sekai-assets/music/music_score/${paddedId}_01/${difficulty}`;  
+  const url = `${STORAGE_BASE}/sekai-jp-assets/music/music_score/${paddedId}_01/${difficulty}.txt`;  
   const res = await fetch(url);
   if (!res.ok) throw new Error(`Chart not found: ${url}`);
   const raw = await res.text();
