@@ -60,6 +60,9 @@ import GridOut from "../../components/styled/GridOut";
 import EmbedVideoPlayer from "../../components/blocks/EmbedVideoPlayer";
 import { addID3Tags } from "../../utils/mp3";
 import { addFlacTags } from "../../utils/flac";
+import { downloadChartAsSus } from "../../utils/susDownloader";
+import { Button } from "@mui/material";
+import DownloadIcon from "@mui/icons-material/Download";
 
 const KR_EXCLUSIVE_IDS = [
   10001, 10002, 371, 387, 419, 420, 453, 459, 464, 10003, 10004, 10005, 10006,
@@ -1298,6 +1301,42 @@ const MusicDetail: React.FC<unknown> = observer(() => {
                             </Link>
                           </Grid>
                         </Grid>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                  <Divider style={{ margin: "1% 0" }} />
+                  <Grid item>
+                    <Grid
+                      container
+                      direction="row"
+                      justifyContent="space-between"
+                      alignItems="center"
+                    >
+                      <Grid item>
+                        <Typography
+                          variant="subtitle1"
+                          style={{ fontWeight: 600 }}
+                        >
+                          Download Chart
+                        </Typography>
+                      </Grid>
+                      <Grid item>
+                        <Button
+                          variant="outlined"
+                          size="small"
+                          startIcon={<DownloadIcon />}
+                          onClick={() =>
+                            music &&
+                            downloadChartAsSus(
+                              musicId,
+                              elem.musicDifficulty,
+                              music.title,
+                              elem.playLevel
+                            )
+                          }
+                        >
+                          {elem.musicDifficulty.toUpperCase()} .sus
+                        </Button>
                       </Grid>
                     </Grid>
                   </Grid>
