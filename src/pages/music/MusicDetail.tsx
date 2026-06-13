@@ -1341,6 +1341,39 @@ const MusicDetail: React.FC<unknown> = observer(() => {
                     </Grid>
                   </Grid>
                   <Divider style={{ margin: "1% 0" }} />
+                  <Grid item>
+                    <Grid
+                      container
+                      direction="row"
+                      justifyContent="space-between"
+                      alignItems="center"
+                    >
+                      <Grid item>
+                        <Typography
+                          variant="subtitle1"
+                          style={{ fontWeight: 600 }}
+                        >
+                          Chart Preview
+                        </Typography>
+                      </Grid>
+                      <Grid item>
+                        <Button
+                          variant="outlined"
+                          size="small"
+                          startIcon={<OpenInNew />}
+                          onClick={() =>
+                            window.open(
+                              `https://pjsk.moe/chart-preview?musicId=${musicId}&difficulty=${elem.musicDifficulty}&preview=true&from=go-sekai`,
+                              "_blank"
+                            )
+                          }
+                        >
+                          Online 3D Preview
+                        </Button>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                  <Divider style={{ margin: "1% 0" }} />
                 </Grid>
               </TabPanel>
             ))}
