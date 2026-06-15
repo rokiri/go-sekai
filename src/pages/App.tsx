@@ -96,7 +96,7 @@ import { IUserMetadata } from "../stores/user";
 import { fontFaceOverride, fontList } from "../utils/fonts";
 import { WebpMachine } from "webp-hero";
 import BondsHonorList from "./honor/BondsHonorList";
-import ChartPreview from "./music/ChartPreview";
+const ChartPreview = lazy(() => import("./music/ChartPreview"));
 
 const CardList = lazy(() => import("./card/CardList"));
 const HomeView = lazy(() => import("./Home"));
