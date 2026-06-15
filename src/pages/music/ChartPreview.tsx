@@ -17,8 +17,6 @@ import {
 } from "../../types.d";
 import { useCachedData } from "../../utils";
 import { getRemoteAssetURL } from "../../utils";
-import ContainerContent from "../../components/styled/ContainerContent";
-import TypographyHeader from "../../components/styled/TypographyHeader";
 import { useRootStore } from "../../stores/root";
 
 const ChartPreviewPlayer = lazy(() => import("./ChartPreviewPlayer"));
@@ -119,12 +117,10 @@ const ChartPreview: React.FC = () => {
   }
 
   return (
-    <div>
-      <TypographyHeader>
-        Chart Preview — {music.title}
-      </TypographyHeader>
-      <ContainerContent maxWidth="md">
-        <Grid container spacing={2} alignItems="center" style={{ marginBottom: 16 }}>
+    <div style={{ width: "100%", minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+      {/* Header bar */}
+      <Box sx={{ px: 2, pt: 1, pb: 0 }}>
+        <Grid container spacing={1} alignItems="center" style={{ marginBottom: 8 }}>
           <Grid item>
             <Button
               startIcon={<ArrowBack />}
@@ -132,8 +128,13 @@ const ChartPreview: React.FC = () => {
               variant="outlined"
               size="small"
             >
-              Back to Music
+              Back
             </Button>
+          </Grid>
+          <Grid item>
+            <Typography variant="subtitle1" style={{ fontWeight: 600 }}>
+              {music.title}
+            </Typography>
           </Grid>
           {selectedDiffInfo && (
             <Grid item>
@@ -150,7 +151,7 @@ const ChartPreview: React.FC = () => {
           onChange={(_, v) => setSelectedDifficulty(v)}
           variant="scrollable"
           scrollButtons
-          style={{ marginBottom: 16 }}
+          style={{ marginBottom: 8 }}
         >
           {availableDiffs.map((d) => (
             <Tab
@@ -164,11 +165,21 @@ const ChartPreview: React.FC = () => {
             />
           ))}
         </Tabs>
+      </Box>
 
-        {/* Player */}
-        {susUrl && (
+      {/* Player — fullwidth, 16:9 aspect ratio */}
+      <Box
+        sx={{
+          width: "100%",
+          position: "relative",
+          aspectRatio: "16/9",
+          background: "#000",
+          flex: 1,
+        }}
+      >
+        {susUrl ? (
           <Suspense fallback={
-            <Box display="flex" justifyContent="center" p={4}>
+            <Box display="flex" justifyContent="center" alignItems="center" height="100%">
               <CircularProgress />
             </Box>
           }>
@@ -186,8 +197,12 @@ const ChartPreview: React.FC = () => {
               arranger={music.arranger}
             />
           </Suspense>
+        ) : (
+          <Box display="flex" justifyContent="center" alignItems="center" height="100%">
+            <CircularProgress />
+          </Box>
         )}
-      </ContainerContent>
+      </Box>
     </div>
   );
 };
