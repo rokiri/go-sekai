@@ -1361,12 +1361,7 @@ const MusicDetail: React.FC<unknown> = observer(() => {
                           variant="outlined"
                           size="small"
                           startIcon={<OpenInNew />}
-                          onClick={() =>
-                            window.open(
-                              `https://pjsk.moe/chart-preview?musicId=${musicId}&difficulty=${elem.musicDifficulty}&preview=true&from=go-sekai`,
-                              "_blank"
-                            )
-                          }
+                          onClick={() => window.open(`/music/${musicId}/chart-preview`, "_blank")}
                         >
                           Online 3D Preview
                         </Button>

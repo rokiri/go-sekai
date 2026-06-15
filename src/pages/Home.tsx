@@ -557,7 +557,7 @@ const Home: React.FC = () => {
                   <Grid item>
                     <Discord fontSize="small"></Discord>
                   </Grid>
-                  <Grid item>Sekai Viewer</Grid>
+                  <Grid item>Go-Sekai Database</Grid>
                 </Grid>
               </Link>
             </Grid>

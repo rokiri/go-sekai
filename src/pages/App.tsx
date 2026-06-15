@@ -96,6 +96,7 @@ import { IUserMetadata } from "../stores/user";
 import { fontFaceOverride, fontList } from "../utils/fonts";
 import { WebpMachine } from "webp-hero";
 import BondsHonorList from "./honor/BondsHonorList";
+import ChartPreview from "./music/ChartPreview";
 
 const CardList = lazy(() => import("./card/CardList"));
 const HomeView = lazy(() => import("./Home"));
@@ -1264,6 +1265,7 @@ const AppInner = observer((props: { theme: Theme }) => {
               <Route path="/asset_viewer">
                 <AssetViewer />
               </Route>
+              <Route path="/music/:musicId/chart-preview" component={ChartPreview} />
             </Suspense>
           </Switch>
         </Container>
