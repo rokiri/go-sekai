@@ -1143,6 +1143,9 @@ const AppInner = observer((props: { theme: Theme }) => {
               <Route path="/music" exact>
                 <MusicList />
               </Route>
+              <Route path="/music/:musicId(\d+)/chart-preview">
+                <ChartPreview />
+              </Route>
               <Route path="/music/:musicId(\d+)">
                 <MusicDetail />
               </Route>
@@ -1265,7 +1268,6 @@ const AppInner = observer((props: { theme: Theme }) => {
               <Route path="/asset_viewer">
                 <AssetViewer />
               </Route>
-              <Route path="/music/:musicId/chart-preview" component={ChartPreview} />
             </Suspense>
           </Switch>
         </Container>
